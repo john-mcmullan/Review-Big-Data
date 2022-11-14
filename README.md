@@ -1,127 +1,55 @@
-# Unit 22 Homework: “Alexa, Can You Handle Big Data?”
+# Level 1
 
-## Before You Begin
+### Upload two datasets:
 
-1. Create a new repository for this project called `big-data-challenge`. **Do not add this homework to an existing repository**.
+![2022-11-14 15_10_47-Window](https://user-images.githubusercontent.com/100164773/201756108-493e0962-e745-4bdc-b368-f4463a9a60f5.png)
 
-2. Clone the new repository to your computer.
+![2022-11-14 15_10_56-Window](https://user-images.githubusercontent.com/100164773/201756136-000390a6-d495-4633-b4d0-edf8bad3bf77.png)
 
-3. Inside your local git repository, create a directory for the level of challenge that you choose. Use folder names corresponding to the challenges: level-1 or level-2.
+### Drop Unwanted Data and Print Schema:
 
-4. Download a Google Colab Notebook as a `ipynb` file and add it to this folder. This will be the main script to run for analysis. Be sure to also add any SQL queries that you used to a `.sql` file and then add it to your repo.
+![2022-11-14 15_12_19-Window](https://user-images.githubusercontent.com/100164773/201756394-c023f67d-c88a-4e6c-85e7-14336f9a44f7.png)
 
-5. Push the above changes to GitHub or GitLab.
+![2022-11-14 15_12_31-Window](https://user-images.githubusercontent.com/100164773/201756409-88fb921b-5ac0-4866-a1d5-b6533d591625.png)
 
+### Create Dataframes:
 
-## Background
+![2022-11-14 15_13_43-Window](https://user-images.githubusercontent.com/100164773/201756756-7e899976-760f-4bf5-81bc-f33d154ef8d1.png)
 
-In this assignment, you will put your ETL skills to the test. Many of Amazon's shoppers depend on product reviews to make a purchase. Amazon makes these datasets publicly available. They are quite large and can exceed the capacity of local machines. One dataset alone contains over 1.5 million rows; with over 40 datasets, data analysis can be very demanding on the average local computer. Your first goal for this assignment will be to perform the ETL process completely in the cloud and upload a DataFrame to an RDS instance. The second goal will be to use PySpark or SQL to perform a statistical analysis of selected data.
+![2022-11-14 15_13_48-Window](https://user-images.githubusercontent.com/100164773/201756807-9a008762-e91e-476a-b25d-10cb68793622.png)
 
-This homework assignment contains two levels. The second level is optional but highly recommended.
+![2022-11-14 15_13_56-Window](https://user-images.githubusercontent.com/100164773/201756842-bfcf3e21-528f-4560-b927-8072978b3622.png)
 
-1. Create DataFrames to match production-ready tables from two big Amazon customer review datasets.
+![2022-11-14 15_14_03-Window](https://user-images.githubusercontent.com/100164773/201756882-a41f965b-6b31-4311-9178-69ed5272b749.png)
 
-2. Analyze whether reviews from Amazon's Vine program are trustworthy.
+### Upload to PostgreSQL
 
-- - -
+![2022-11-14 15_16_04-Window](https://user-images.githubusercontent.com/100164773/201757046-2cae2047-5b81-4003-8d09-5a0bdf044ccc.png)
 
-## Instructions
+![2022-11-14 15_16_32-Window](https://user-images.githubusercontent.com/100164773/201757118-bdbe6353-5041-46fa-9265-9d0fa755883b.png)
 
-### Level 1
+# Level 2
 
-* Use the provided schema to create tables in your RDS database.
+### Upload two datasets:
 
-* Create two separate Google Colab notebooks and **extract** any two datasets from the list at [review dataset](https://s3.amazonaws.com/amazon-reviews-pds/tsv/index.txt). Put each dataset into its own notebook.
+![2022-11-14 15_10_47-Window](https://user-images.githubusercontent.com/100164773/201756108-493e0962-e745-4bdc-b368-f4463a9a60f5.png)
 
-  **Note:** You could ETL both data sources in a single Colab notebook, but it will be easier to work with these large S3 data sources in separate notebooks.
+![2022-11-14 15_10_56-Window](https://user-images.githubusercontent.com/100164773/201756136-000390a6-d495-4633-b4d0-edf8bad3bf77.png)
 
-* Be sure to handle the header correctly. If you read the file without the header parameter, you may find that the column headers are included in the table rows.
+### Drop Data:
 
-* Complete the following steps for each notebook (one dataset per notebook).
+![2022-11-14 15_17_49-Window](https://user-images.githubusercontent.com/100164773/201757438-bb77b050-895f-497a-8255-5b49a1387508.png)
 
-  * Count the number of records (rows) in the dataset.
+### Filter Data:
 
-  * Transform the dataset to fit the tables in the [schema file](../Resources/schema.sql). Be sure that the DataFrames match in data type and in column name.
+![2022-11-14 15_18_35-Window](https://user-images.githubusercontent.com/100164773/201757510-307d4824-a331-4726-9133-a9d53ba4917e.png)
 
-  * Load the DataFrames that correspond to tables into an RDS instance. **Note:** This process can take up to 10 minutes for each. Ensure that everything is correct before uploading.
+### Find Results:
 
-### Level 2
+![2022-11-14 15_19_09-Window](https://user-images.githubusercontent.com/100164773/201757651-a3936e39-cf1b-4f9b-ad8a-e9bcc3c3a007.png)
 
-In Amazon's Vine program, reviewers receive free products in exchange for reviews.
+![2022-11-14 15_19_37-Window](https://user-images.githubusercontent.com/100164773/201757752-0d4c7b99-0e2f-442d-83eb-1146341d9a7e.png)
 
-  ![vine01.png](../Images/vine01.png)
+### Analysis:
 
-Amazon has several policies to reduce the bias of its Vine reviews: [https://www.amazon.com/gp/vine/help?ie=UTF8](https://www.amazon.com/gp/vine/help?ie=UTF8).
-
-But are Vine reviews truly trustworthy? Your task is to investigate whether Vine reviews are free of bias. Use either PySpark or, for an extra challenge, SQL to analyze the data.
-
-* If you choose SQL, first use Spark on Colab to extract and transform the data and then load it into a SQL table on your RDS account. Perform your analysis with SQL queries on RDS.
-
-* While there are no strict requirements for the analysis, consider steps you can take to reduce noisy data, such as filtering for reviews that meet a certain number of helpful votes, total votes, or both.
-
-* Submit a summary of your findings and analysis.
-
-- - -
-
-## Hints and Considerations
-
-* Start each notebook with the following code in the first cell, and be sure to update the Spark version.
-
-```python
-import os
-# Find the latest version of spark 3.2  from http://www.apache.org/dist/spark/ and enter as the spark version
-# For example:
-# spark_version = 'spark-3.2.2'
-spark_version = 'spark-3.<spark version>'
-os.environ['SPARK_VERSION']=spark_version
-
-# Install Spark and Java
-!apt-get update
-!apt-get install openjdk-11-jdk-headless -qq > /dev/null
-!wget -q http://www.apache.org/dist/spark/$SPARK_VERSION/$SPARK_VERSION-bin-hadoop2.7.tgz
-!tar xf $SPARK_VERSION-bin-hadoop2.7.tgz
-!pip install -q findspark
-
-# Set Environment Variables
-import os
-os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-11-openjdk-amd64"
-os.environ["SPARK_HOME"] = f"/content/{spark_version}-bin-hadoop2.7"
-
-# Start a SparkSession
-import findspark
-findspark.init()
-```
-
-* For connection to Postgres, run the following code in the next cell.
-
-```python
-!wget https://jdbc.postgresql.org/download/postgresql-42.2.9.jar
-```
-
-- - -
-
-## Submission
-
-* **Important**: You must clean up all your AWS resources. Consult the [AWS cleanup guide](../Resources/AWS_cleanup.pdf) and [AWS check billing guide](../Resources/AWS_check_billing.pdf) as reference.
-
-* Download your Google Colab notebooks as `.ipynb` files and upload those to GitHub.
-
-* Copy your SQL queries into `.sql` files and upload them to GitHub.
-
-* **Important:** Do not upload notebooks that contain your RDS password and endpoint. Delete these two items before making your notebook public!
-
-* Ensure your repository has regular commits and a thorough README.md file
-
-## Rubric
-
-[Unit 22 Homework Rubric](https://docs.google.com/document/d/1H-TBgBUz1jVGG1zvo046GraApmbepVZgYionh-4mNas/edit?usp=sharing)
-
-- - -
-
-## References
-
-Amazon customer Reviews Dataset. (n.d.). Retrieved April 08, 2021, from: [https://s3.amazonaws.com/amazon-reviews-pds/readme.html](https://s3.amazonaws.com/amazon-reviews-pds/readme.html)
-
----
-
-© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+* Vine Reviewers are harsher in their reviews giving 20% less 5 stars than normal reviewers.
